@@ -4,7 +4,7 @@ package L3;
 public class CourseChecker {
     public static void main(String[] args) {
         int course = 210;
-        String[] students = {"Shaoqiang", "Alex", "Neil"};
+        String[] students = {"Qiang", "Alex", "Neil"};
 
         if (check(course)) {
             process(course);
