@@ -1,7 +1,7 @@
-package L4.recursion;
+package L4;
 
-// Recursion practice solution
-public class FactorialSoln {
+// Recursion exercise
+public class Factorial {
     public static void main(String[] args) {
          System.out.println(factorial(0));
          System.out.println(factorial(1));
