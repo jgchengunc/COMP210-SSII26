@@ -1,4 +1,4 @@
-package L4.oop.nonOop;
+package L5.oop.nonOop;
 
 import java.util.Scanner;
 
