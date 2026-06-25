@@ -1,4 +1,4 @@
-package L4;
+package L4.recursion;
 
 // Recursion practice
 public class Factorial {

@@ -1,4 +1,4 @@
-package L3;
+package L3.java;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package L4;
+package L4.stackHeap;
 
 // Stack & heap memory exercise
 public class Absol {
