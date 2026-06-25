@@ -4,7 +4,7 @@ package L4.stackHeap;
 public class Absol {
     public static void main(String[] args) {
         int attack = 130;
-        String[] moves = {"Slash", "swordsDance"};
+        String[] moves = {"slash", "swordsDance"};
         megaEvolve();
     }
     public static void megaEvolve() {
