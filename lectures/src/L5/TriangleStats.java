@@ -1,7 +1,7 @@
-package L5.oop;
+package L5;
 
 // Initial Non-OOP example
-public class Category {
+public class TriangleStats {
     public static void main(String[] args) {
         double pointAX = 0.0;
         double pointAY = 0.0;
@@ -12,6 +12,8 @@ public class Category {
 
         String category = triangleCategory(pointAX, pointAY, pointBX, pointBY, pointCX, pointCY);
         System.out.println("Category: " + category);
+        double perimeter = trianglePerimeter(pointAX, pointAY, pointBX, pointBY, pointCX, pointCY);
+        System.out.println("Perimeter: " + perimeter);
     }
 
     public static String triangleCategory(double pointAX, double pointAY, double pointBX,
@@ -30,6 +32,15 @@ public class Category {
         } else {
             return "scalene";
         }
+    }
+
+    public static double trianglePerimeter(double pointAX, double pointAY, double pointBX,
+                                          double pointBY, double pointCX, double pointCY) {
+        double sideABLength = pointDistance(pointAX, pointAY, pointBX, pointBY);
+        double sideBCLength = pointDistance(pointBX, pointBY, pointCX, pointCY);
+        double sideACLength = pointDistance(pointAX, pointAY, pointCX, pointCY);
+
+        return sideABLength + sideBCLength + sideACLength;
     }
 
     private static boolean closeEnough(double side1Length, double side2Length) {
