@@ -1,4 +1,4 @@
-package L5;
+package L5.oop.before;
 
 // Initial Non-OOP example
 public class TriangleStats {
