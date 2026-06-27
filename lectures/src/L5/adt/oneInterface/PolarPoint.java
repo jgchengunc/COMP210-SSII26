@@ -1,7 +1,6 @@
 package L5.adt.oneInterface;
 
 public class PolarPoint implements Point {
-
 	private double _theta;
 	private double _r;
 	
@@ -20,13 +19,13 @@ public class PolarPoint implements Point {
 		return (_r * Math.sin(_theta));
 	}
 
-	public double distanceTo(Point otherPoint) {
-		return Math.sqrt(Math.pow(getX() - otherPoint.getX(), 2) + Math.pow(getY() - otherPoint.getY(), 2));
+	public double distanceTo(Point other) {
+		return Math.sqrt(Math.pow(getX() - other.getX(), 2) + Math.pow(getY() - other.getY(), 2));
 	}
 
-	public boolean equals(Point otherPoint) {
-		boolean xCloseEnough = (Math.abs(getX() - otherPoint.getX()) < POINT_EPSILON);
-		boolean yCloseEnough = (Math.abs(getY() - otherPoint.getY()) < POINT_EPSILON);
+	public boolean equals(Point other) {
+		boolean xCloseEnough = (Math.abs(getX() - other.getX()) < POINT_EPSILON);
+		boolean yCloseEnough = (Math.abs(getY() - other.getY()) < POINT_EPSILON);
 
 		return (xCloseEnough && yCloseEnough);
 	}

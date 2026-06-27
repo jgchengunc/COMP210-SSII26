@@ -1,28 +1,26 @@
 package L5.adt.twoInterfaces;
 
 public class PolarPoint implements Point {
-
-	private double theta;
-	private double r;
+	private double _theta;
+	private double _r;
 	
 	final private static double POINT_EPSILON = 0.0001;
 	
 	public PolarPoint(double theta, double r) {
-		this.theta = theta;
-		this.r = r;
+		this._theta = theta;
+		this._r = r;
 	}
 	
 	public double getX() {
-		return (r * Math.cos(theta));
+		return (_r * Math.cos(_theta));
 	}
 
 	public double getY() {
-		return (r * Math.sin(theta));
+		return (_r * Math.sin(_theta));
 	}
 
 	public double distanceTo(Point other) {
-		return Math.sqrt((getX() - other.getX())*(getX() - other.getX()) +
-		         (getY() - other.getY())*(getY() - other.getY()));
+		return Math.sqrt(Math.pow(getX() - other.getX(), 2) + Math.pow(getY() - other.getY(), 2));
 	}
 
 	public boolean equals(Point other) {

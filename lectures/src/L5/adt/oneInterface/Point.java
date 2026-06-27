@@ -1,7 +1,6 @@
 package L5.adt.oneInterface;
 
 public interface Point {
-	
 	double getX();
 	double getY();
 	double distanceTo(Point p);

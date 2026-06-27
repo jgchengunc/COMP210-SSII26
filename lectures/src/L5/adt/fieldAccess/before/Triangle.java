@@ -2,22 +2,22 @@ package L5.adt.fieldAccess.before;
 
 // No access modifiers on fields or methods
 public class Triangle {
-    Point _pointA;
-    Point _pointB;
-    Point _pointC;
+    Point _a;
+    Point _b;
+    Point _c;
 
     static final double SIDE_EPSILON = 0.001;
 
-    public Triangle(Point pointA, Point pointB, Point pointC) {
-        this._pointA = pointA;
-        this._pointB = pointB;
-        this._pointC = pointC;
+    public Triangle(Point a, Point b, Point c) {
+        this._a = a;
+        this._b = b;
+        this._c = c;
     }
 
     String category() {
-        double sideABLength = _pointA.distanceTo(_pointB);
-        double sideBCLength = _pointB.distanceTo(_pointC);
-        double sideACLength = _pointA.distanceTo(_pointC);
+        double sideABLength = _a.distanceTo(_b);
+        double sideBCLength = _b.distanceTo(_c);
+        double sideACLength = _a.distanceTo(_c);
 
         if (closeEnough(sideABLength, sideBCLength) &&
             closeEnough(sideBCLength, sideACLength)) {
@@ -32,15 +32,15 @@ public class Triangle {
     }
 
     double perimeter() {
-        double sideABLength = _pointA.distanceTo(_pointB);
-        double sideBCLength = _pointB.distanceTo(_pointC);
-        double sideACLength = _pointA.distanceTo(_pointC);
+        double sideABLength = _a.distanceTo(_b);
+        double sideBCLength = _b.distanceTo(_c);
+        double sideACLength = _a.distanceTo(_c);
 
         return sideABLength + sideBCLength + sideACLength;
     }
 
-    static boolean closeEnough(double sideLength1, double sideLength2) {
+    static boolean closeEnough(double side1Length, double side2Length) {
         // Epsilon bound test for side length differences
-        return Math.abs(sideLength1 - sideLength2) < SIDE_EPSILON;
+        return Math.abs(side1Length - side2Length) < SIDE_EPSILON;
     }
 }

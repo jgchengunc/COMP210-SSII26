@@ -1,17 +1,16 @@
 package L5.adt.oneInterface;
 
 public class Triangle {
-	
-	private Point a;
-	private Point b;
-	private Point c;
+	private Point _a;
+	private Point _b;
+	private Point _c;
 
 	private static final double AREA_EPSILON = 0.000001;
 
 	public Triangle(Point a, Point b, Point c) {
-		this.a = a;
-		this.b = b;
-		this.c = c;
+		this._a = a;
+		this._b = b;
+		this._c = c;
 		
 		if (checkColinearity()) {
 			throw new RuntimeException("Triangle points are co-linear");
@@ -19,15 +18,15 @@ public class Triangle {
 	}
 	
 	public Point getA() {
-		return a;
+		return _a;
 	}
 	
 	public void setA(Point p) {
-		if (p.equals(b) || p.equals(c)) {
+		if (p.equals(_b) || p.equals(_c)) {
 			throw new RuntimeException("Attempting to set point A to same value as either B or C");
 		}
 		
-		a = p;
+		_a = p;
 		
 		if (checkColinearity()) {
 			throw new RuntimeException("Triangle points are co-linear");
@@ -35,15 +34,15 @@ public class Triangle {
 	}
 	
 	public Point getB() {
-		return b;
+		return _b;
 	}
 	
 	public void setB(Point p) {
-		if (p.equals(a) || p.equals(c)) {
+		if (p.equals(_a) || p.equals(_c)) {
 			throw new RuntimeException("Attempting to set point B to same value as either A or C");
 		}
 		
-		b = p;
+		_b = p;
 		
 		if (checkColinearity()) {
 			throw new RuntimeException("Triangle points are co-linear");
@@ -51,15 +50,15 @@ public class Triangle {
 	}
 	
 	public Point getC() {
-		return c;
+		return _c;
 	}
 	
 	public void setC(Point p) {
-		if (p.equals(a) || p.equals(b)) {
+		if (p.equals(_a) || p.equals(_b)) {
 			throw new RuntimeException("Attempting to set point C to same value as either A or B");
 		}
 		
-		c = p;
+		_c = p;
 		
 		if (checkColinearity()) {
 			throw new RuntimeException("Triangle points are co-linear");
@@ -67,7 +66,7 @@ public class Triangle {
 	}
 
 	public Point[] getPoints() {
-        return new Point[]{a, b, c};
+        return new Point[]{_a, _b, _c};
 	}
 	
 	public void setPoints(Point[] points) {
@@ -77,9 +76,9 @@ public class Triangle {
 			throw new RuntimeException("At least two points have same value");
 		}
 		
-		a = points[0];
-		b = points[1];
-		c = points[2];
+		_a = points[0];
+		_b = points[1];
+		_c = points[2];
 		
 		if (checkColinearity()) {
 			throw new RuntimeException("Triangle points are co-linear");
@@ -100,14 +99,14 @@ public class Triangle {
 	}
 
 	double sideABLength() {
-		return a.distanceTo(b);
+		return _a.distanceTo(_b);
 	}
 	
 	double sideBCLength() {
-		return b.distanceTo(c);
+		return _b.distanceTo(_c);
 	}
 	
 	double sideCALength() {
-		return c.distanceTo(a);
+		return _c.distanceTo(_a);
 	}
 }

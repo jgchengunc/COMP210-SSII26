@@ -1,23 +1,23 @@
 package L5.oop.after;
 
 public class Triangle {
-    private Point _pointA;
-    private Point _pointB;
-    private Point _pointC;
+    private Point _a;
+    private Point _b;
+    private Point _c;
 
     private static final double SIDE_EPSILON = 0.001;
 
-    public Triangle(double pointAX, double pointAY, double pointBX,
-                    double pointBY, double pointCX, double pointCY) {
-        _pointA = new Point(pointAX, pointAY);
-        _pointB = new Point(pointBX, pointBY);
-        _pointC = new Point(pointCX, pointCY);
+    public Triangle(double ax, double ay, double bx,
+                    double by, double cx, double cy) {
+        _a = new Point(ax, ay);
+        _b = new Point(bx, by);
+        _c = new Point(cx, cy);
     }
 
     public String category() {
-        double sideABLength = _pointA.distanceTo(_pointB);
-        double sideBCLength = _pointB.distanceTo(_pointC);
-        double sideACLength = _pointA.distanceTo(_pointC);
+        double sideABLength = _a.distanceTo(_b);
+        double sideBCLength = _b.distanceTo(_c);
+        double sideACLength = _a.distanceTo(_c);
 
         if (closeEnough(sideABLength, sideBCLength) &&
             closeEnough(sideBCLength, sideACLength)) {
@@ -32,15 +32,15 @@ public class Triangle {
     }
 
     public double perimeter() {
-        double sideABLength = _pointA.distanceTo(_pointB);
-        double sideBCLength = _pointB.distanceTo(_pointC);
-        double sideACLength = _pointA.distanceTo(_pointC);
+        double sideABLength = _a.distanceTo(_b);
+        double sideBCLength = _b.distanceTo(_c);
+        double sideACLength = _a.distanceTo(_c);
 
         return sideABLength + sideBCLength + sideACLength;
     }
 
-    private static boolean closeEnough(double sideLength1, double sideLength2) {
+    private static boolean closeEnough(double side1Length, double side2Length) {
         // Epsilon bound test for side length differences
-        return Math.abs(sideLength1 - sideLength2) < SIDE_EPSILON;
+        return Math.abs(side1Length - side2Length) < SIDE_EPSILON;
     }
 }

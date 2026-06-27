@@ -14,15 +14,15 @@ public class Perimeter {
 		System.out.println("Perimeter of T1 = " + t1.perimeter());
 		System.out.println("Perimeter of T2 = " + t2.perimeter());
 
-		t1._pointA._x += 5;
-		t1._pointB._x += 5;
-		t1._pointC._x += 5;
+		t1._a._x += 5;
+		t1._b._x += 5;
+		t1._c._x += 5;
 		
 		System.out.println("Perimeter of T1 = " + t1.perimeter());
 		System.out.println("Perimeter of T2 = " + t2.perimeter());
 				
-		t1._pointA = t1._pointC;
-		t1._pointB = t1._pointC;
+		t1._a = t1._c;
+		t1._b = t1._c;
 		
 		System.out.println("Perimeter of T1 = " + t1.perimeter());
 		System.out.println("Perimeter of T2 = " + t2.perimeter());		
