@@ -1,4 +1,4 @@
-package L8.linkedList;
+package L9.linkedList;
 
 public class Main {
 

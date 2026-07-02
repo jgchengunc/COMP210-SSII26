@@ -1,6 +1,6 @@
-package L8.list;
+package L9.list;
 
-public class MyList<T> implements List<T> {
+public class ArrayList<T> implements List<T> {
 
 
     @Override

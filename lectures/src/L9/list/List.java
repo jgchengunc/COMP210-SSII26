@@ -1,4 +1,4 @@
-package L8.list;
+package L9.list;
 
 public interface List<T> {
 
