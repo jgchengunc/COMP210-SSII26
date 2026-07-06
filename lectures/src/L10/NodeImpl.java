@@ -1,4 +1,4 @@
-package L9.linkedList;
+package L10;
 
 
 public class NodeImpl<T> implements Node<T> {

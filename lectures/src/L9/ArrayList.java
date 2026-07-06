@@ -1,4 +1,4 @@
-package L9.list;
+package L9;
 
 public class ArrayList<T> implements List<T> {
 
