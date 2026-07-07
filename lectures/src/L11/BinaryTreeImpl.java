@@ -27,13 +27,13 @@ public class BinaryTreeImpl<T> implements BinaryTree<T> {
     }
 
     @Override
-    public BinaryTree<T> getRight() {
-        return _right;
+    public void setLeft(BinaryTree<T> left) {
+        _left = left;
     }
 
     @Override
-    public void setLeft(BinaryTree<T> left) {
-        _left = left;
+    public BinaryTree<T> getRight() {
+        return _right;
     }
 
     @Override
@@ -43,12 +43,19 @@ public class BinaryTreeImpl<T> implements BinaryTree<T> {
 
     @Override
     public int height() {
-        return 0;
+        if (_left == null && _right == null) return 0;
+        else if (_right == null) return _left.height() + 1;
+        else if (_left == null) return _right.height() + 1;
+        else return Math.max(_left.height(), _right.height()) + 1;
     }
 
     @Override
     public boolean contains(T value) {
-        return false;
+        if (value.equals(_value)) return true;
+        else if (_left == null && _right == null) return false;
+        else if (_right == null) return _left.contains(value);
+        else if (_left == null) return _right.contains(value);
+        else return _left.contains(value) || _right.contains(value);
     }
 
     @Override
