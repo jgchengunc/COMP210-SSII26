@@ -2,7 +2,7 @@ package L12;
 
 public class BinaryMinTree<V, P extends Comparable<P>> implements PriorityQueue<V, P> {
 
-	private Prioritized<V,P> _root_value;
+	private PQItem<V,P> _root_value;
 	private BinaryMinTree<V,P> _left;
 	private BinaryMinTree<V,P> _right;
 	private boolean _is_empty;
@@ -20,7 +20,7 @@ public class BinaryMinTree<V, P extends Comparable<P>> implements PriorityQueue<
 	}
 
 	// Constructor #2
-	public BinaryMinTree(Prioritized<V,P> value) {
+	public BinaryMinTree(PQItem<V,P> value) {
 		_root_value = value;
 		_left = new BinaryMinTree<V,P>();
 		_right = new BinaryMinTree<V,P>();
@@ -31,13 +31,13 @@ public class BinaryMinTree<V, P extends Comparable<P>> implements PriorityQueue<
 	
 	@Override
 	public void enqueue(V value, P priority) {
-		Prioritized<V,P> pv = new PrioritizedImpl(value, priority);
+		PQItem<V,P> pv = new PQItemImpl(value, priority);
 		enqueuePrioritized(pv);		
 	}
 	
 	@Override
 	public V dequeue() {
-		Prioritized<V,P> pv = dequeuePrioritized();
+		PQItem<V,P> pv = dequeuePrioritized();
 		return pv.getValue();
 	}
 
@@ -47,7 +47,7 @@ public class BinaryMinTree<V, P extends Comparable<P>> implements PriorityQueue<
 			throw new UnsupportedOperationException();
 		}
 		
-		Prioritized<V,P> pv = getPrioritizedMin();
+		PQItem<V,P> pv = getPrioritizedMin();
 		return pv.getValue();
 	}
 
@@ -56,7 +56,7 @@ public class BinaryMinTree<V, P extends Comparable<P>> implements PriorityQueue<
 		return _size;
 	}
 	
-	private void enqueuePrioritized(Prioritized<V,P> value) {
+	private void enqueuePrioritized(PQItem<V,P> value) {
 		if (_is_empty) {
 			_root_value = value;
 			_left = new BinaryMinTree<V,P>();
@@ -65,7 +65,7 @@ public class BinaryMinTree<V, P extends Comparable<P>> implements PriorityQueue<
 			_height = 0;
 		} else {
 			if (value.getPriority().compareTo(_root_value.getPriority()) < 0) {
-				Prioritized<V,P> tmp = value;
+				PQItem<V,P> tmp = value;
 				value = _root_value;
 				_root_value = tmp;
 			}
@@ -81,13 +81,13 @@ public class BinaryMinTree<V, P extends Comparable<P>> implements PriorityQueue<
 		_size++;
 	}
 
-	private Prioritized<V,P> dequeuePrioritized() {
+	private PQItem<V,P> dequeuePrioritized() {
 	
 		if (_is_empty) {
 			throw new UnsupportedOperationException();
 		}
 		
-		Prioritized<V,P> result = _root_value;
+		PQItem<V,P> result = _root_value;
 		
 		if (size() == 1) {
 			// Case 1. Become empty.
@@ -108,8 +108,8 @@ public class BinaryMinTree<V, P extends Comparable<P>> implements PriorityQueue<
 			
 		} else {
 			// Case 3, both children non-empty
-			Prioritized<V,P> left_min = _left.getPrioritizedMin();
-			Prioritized<V,P> right_min = _right.getPrioritizedMin();
+			PQItem<V,P> left_min = _left.getPrioritizedMin();
+			PQItem<V,P> right_min = _right.getPrioritizedMin();
 			
 			if (left_min.getPriority().compareTo(right_min.getPriority()) < 0) {
 				_root_value = _left.dequeuePrioritized();
@@ -134,7 +134,7 @@ public class BinaryMinTree<V, P extends Comparable<P>> implements PriorityQueue<
 		return result;
 	}
 
-	private Prioritized<V,P> getPrioritizedMin() {		
+	private PQItem<V,P> getPrioritizedMin() {
 		if (_is_empty) {
 			throw new UnsupportedOperationException();
 		}

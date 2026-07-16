@@ -1,11 +1,11 @@
 package L12;
 
-public class PrioritizedImpl<V,P extends Comparable<P>> implements Prioritized<V,P> {
+public class PQItemImpl<V,P extends Comparable<P>> implements PQItem<V,P> {
 
 	private V _value;
 	private P _priority;
 	
-	public PrioritizedImpl(V value, P priority) {
+	public PQItemImpl(V value, P priority) {
 		_value = value;
 		_priority = priority;
 	}
